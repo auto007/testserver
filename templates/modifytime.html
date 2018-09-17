@@ -1,0 +1,33 @@
+{% extends "base_sj.html" %}
+{% block title %}时间修改{% endblock %}
+
+{% block content %}
+    <script>
+        function fff() {
+            var usertime=document.getElementById("usertime").value;
+            if(usertime=="")
+            {
+                alert('请输入日期时间');
+                return false;
+            }
+            var reg = /^(\d{1,4})(-|\/)(\d{1,2})\2(\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2})$/;
+            var r = usertime.match(reg);
+            if(r == null) {
+                alert("输入格式不正确，请按yyyy-MM-dd HH:mm:ss的格式输入！");
+                document.getElementById("usertime").value="";
+                return false;
+            }
+          // alert('aaaaa');
+        }
+    </script>
+    <h1>当前测试服的时间是：{{ ht_time }}<h1>
+
+    <form role="form" action="{% url 'home' %}" method="post" autocomplete="off">
+        <div class="form-group">
+            <label for="name">请输入日期和时间：</label>
+            <input type="text" id="usertime" name="usertime" class="form-control" placeholder="请按格式输入">
+            <button type="submit" class="btn btn-default" onclick="return fff()">提交</button>
+  </div>
+ </form>
+
+{% endblock %}

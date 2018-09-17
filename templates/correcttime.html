@@ -1,0 +1,28 @@
+{% extends "base_sj.html" %}
+{% block title %}时间校准{% endblock %}
+
+{% block content %}
+    <script >
+        function delcfm() {
+            if (!confirm("确认要操作吗？")) {
+                window.event.returnValue = false;
+            }
+        }
+    </script>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/correcttime/?action=xgsj" style="color:white" class="btn btn-danger btn-sm" role="button" onClick="delcfm()">时间校准</a>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">返回结果</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="10">{{ ret }}</textarea>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
