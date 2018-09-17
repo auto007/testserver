@@ -58,8 +58,6 @@ def home(request):
         receive_time = receive_time_dict['usertime']
         if receive_time :
             if receive_time != time_from_txt :
-                print(receive_time)
-                print('正常执行')
                 json.dump(receive_time_dict, open('result.txt', 'w'))
                 os.environ['shell_change_time'] = receive_time
                 os.system('sh /data/yunwei/testserver/changtime.sh "${shell_change_time}"')

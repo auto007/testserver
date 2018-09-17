@@ -23,6 +23,7 @@
     <h1>当前测试服的时间是：{{ ht_time }}<h1>
 
     <form role="form" action="{% url 'home' %}" method="post" autocomplete="off">
+        {% csrf_token %}
         <div class="form-group">
             <label for="name">请输入日期和时间：</label>
             <input type="text" id="usertime" name="usertime" class="form-control" placeholder="请按格式输入">
